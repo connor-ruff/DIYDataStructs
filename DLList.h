@@ -26,15 +26,6 @@ class DLList{
 			node* next;
 			node* prev;
 			
-			/********************************************
-			* Function Name  : checkMemory
-			* Pre-conditions : none
-			* Post-conditions: none
-			* 
-			* Checks to see if the *this pointer is 
-			* pointing to a valid memory location.
-			* Terminates program if not to prevent stack overfloe 
-			********************************************/
 			void checkMemory(){
 				
 				if (this == NULL)
@@ -45,13 +36,6 @@ class DLList{
 				
 			}
 			
-			/********************************************
-			* Function Name  : node
-			* Pre-conditions : none
-			* Post-conditions: none
-			* 
-			* Node Struct Default Constructor 
-			********************************************/
 			node() : data(), next(NULL), prev(NULL) {
 				
 				// Check to ensure address properly allocated
@@ -60,13 +44,6 @@ class DLList{
 			}
 			
 			
-			/********************************************
-			* Function Name  : node
-			* Pre-conditions : none
-			* Post-conditions: none
-			* 
-			* Node Struct Overloaded Constructor with data input 
-			********************************************/
 			node(T dataIn) : data(dataIn), next(NULL), prev(NULL) {
 				
 				// Check to ensure address properly allocated				
@@ -75,14 +52,6 @@ class DLList{
 			}
 			
 
-			/********************************************
-			* Function Name  : ~node
-			* Pre-conditions : none
-			* Post-conditions: none
-			*  
-			* Delete operator required for PQC since it contains a 
-			* private member which is a pointer
-			********************************************/
 			~node(){
 				
 				delete next;
@@ -90,14 +59,6 @@ class DLList{
 			}
 			
 
-			/********************************************
-			* Function Name  : node
-			* Pre-conditions : const node& copy
-			* Post-conditions: none
-			*  
-			* Rule of 3: Copy Constructor
-			* Required for -weffc++ flag
-			********************************************/
 			node(const node& copy){
 				data = copy.data;
 				next = copy.next;
@@ -105,14 +66,6 @@ class DLList{
 			}
 			
 			
-			/********************************************
-			* Function Name  : operator=
-			* Pre-conditions : const node& assign
-			* Post-conditions: node&
-			*
-			* Rule of 3: Assignment Operator
-			* Required for -weffc++ flag 
-			********************************************/
 			node& operator=(const node& assign){
 				
 				if(this != &assign){
@@ -124,14 +77,6 @@ class DLList{
 			}
 			
 			
-			/********************************************
-			* Function Name  : operator=
-			* Pre-conditions : const node* assign
-			* Post-conditions: node*
-			* 
-			* Assignment Operator for Pointer
-			* Required for pointer assignment in DLList
-			********************************************/
 			node* operator=(const node* assign){
 				
 				if(this != (void *)&assign){
@@ -143,14 +88,6 @@ class DLList{
 			}
 			
 			
-			/********************************************
-			* Function Name  : operator!=
-			* Pre-conditions : const node* rhs
-			* Post-conditions: bool
-			*  
-			* != Operator for Pointer
-			* Required for pointer comparison in DLList
-			********************************************/
 			bool operator!=(const node* rhs){
 				
 				return this != (void *)&rhs;
@@ -164,23 +101,9 @@ class DLList{
 		
 	public:
 	
-		/********************************************
-		* Function Name  : DLList
-		* Pre-conditions : none
-		* Post-conditions: none
-		* 
-		* DLList Default Constructor 
-		********************************************/
 		DLList() : head(NULL), tail(NULL) {}
 		
 		
-		/********************************************
-		* Function Name  : ~DLList
-		* Pre-conditions : none
-		* Post-conditions: none
-		* 
-		* Singly Linked List Destructor 
-		********************************************/
 		~DLList(){
 			
 			delete head;
@@ -188,13 +111,6 @@ class DLList{
 		}
 		
 		
-		/********************************************
-		* Function Name  : DLList
-		* Pre-conditions : const DLList<T>& copy
-		* Post-conditions: none
-		* 
-		* Copy Constructor for Singly Linked List 
-		********************************************/
 		DLList(const DLList<T>& copy) : head(NULL), tail(NULL) {
 			
 			node* prev = NULL;
@@ -211,13 +127,6 @@ class DLList{
 
 		}
 	
-		/********************************************
-		* Function Name  : operator=
-		* Pre-conditions : const DLList<T>& assign
-		* Post-conditions: DLList<T>&
-		* 
-		* Assignment Operator for Singly Linked List 
-		********************************************/
 		DLList<T>& operator=(const DLList<T>& assign){
 				
 			if(this != &assign){
@@ -238,14 +147,6 @@ class DLList{
 			
 		}
 
-		/********************************************
-		* Function Name  : Insert
-		* Pre-conditions : int value
-		* Post-conditions: void   
-		* 
-		* Creates a Node with value, and inserts at 
-		* the end of the Singly Linked List
-		********************************************/
 		void Insert (T value)
 		{
 		   node* temp = new node(value);
@@ -279,14 +180,6 @@ class DLList{
 		}
 		
 		
-		/********************************************
-		* Function Name  : push_front
-		* Pre-conditions : T value
-		* Post-conditions: none
-		* 
-		* Puts the element at the front
-		* For O(1) insert time
-		********************************************/
 		void push_front(T value){
 			
 			// Create new node
@@ -322,14 +215,6 @@ class DLList{
 		}
 
 
-		/********************************************
-		* Function Name  : Delete
-		* Pre-conditions : int data
-		* Post-conditions: int    
-		*  
-		* Delets the first instance of data. Returns -1 
-		* if not found
-		********************************************/
 		bool Delete (T target)
 		{
 		   node* temp = new node(); node* prev = new node(); node* curr = new node();
@@ -402,13 +287,6 @@ class DLList{
 		}
 
 
-		/********************************************
-		* Function Name  : IsEmpty
-		* Pre-conditions : node* head
-		* Post-conditions: int    
-		* 
-		* Bool returns if the list contains values
-		********************************************/
 		bool IsEmpty () const{
 			
 			return head == NULL && tail == NULL;
@@ -416,13 +294,6 @@ class DLList{
 		}
 		
 		
-		/********************************************
-		* Function Name  : contains
-		* Pre-conditions : const T& searchVal
-		* Post-conditions: bool
-		* 
-		* Returns whether the list contains the element 
-		********************************************/
 		bool contains(const T& searchVal) const{
 
 		   if (IsEmpty()) {
@@ -493,13 +364,6 @@ class DLList{
 			
 		}
 
-		/********************************************
-		* Function Name  : operator<<
-		* Pre-conditions : std::ostream& output, const DLList<T>& theList 
-		* Post-conditions: std::ostream&
-		* 
-		* Overloaded friend ostream operator for DLList 
-		********************************************/
 		friend std::ostream& operator<<( std::ostream& output, const DLList<T>& theList ){
 			
 		   node* curr;
