@@ -6,7 +6,6 @@ class DynArr{
 	
 		private:
 		
-			// Student Code Goes Here
 			unsigned int size;
 			unsigned int capac;
 			T* data;	
@@ -23,7 +22,6 @@ class DynArr{
 		
 		public:
 
-			// Student Code Goes Here
 			// Constructor
 			DynArr(const int sizeIn = 0) : 
 				size(sizeIn), capac(sizeIn ? sizeIn : 8),
@@ -82,7 +80,6 @@ class DynArr{
 				return capac;
 			}
 			
-			// Student Code Goes Here
 			// Access Operator
 			T& operator[](const unsigned int i) {
 				return data[i];

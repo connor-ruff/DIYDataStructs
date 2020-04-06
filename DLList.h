@@ -1,11 +1,3 @@
-/**********************************************
-* File: DLList.h
-* Author: Matthew Morrison
-* Email: matt.morrison@nd.edu
-* 
-* This file contains the function definitions and 
-* structs for a Linked List Data structure 
-**********************************************/
 
 #ifndef DLLIST_H
 #define DLLIST_H
