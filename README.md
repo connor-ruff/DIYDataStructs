@@ -16,8 +16,20 @@ Hash Table (Incomplete)
 # SplayTree.h
 Splay Tree
 
+# Queue.h
+A queue
+
+# Stack.h
+A stack
+
 # Directory: BTree
 Contains Class for B Tree and B Tree Nodes
 
 # Directory: RBTree
 Contains class for Red-Black Tree and Red-Black Tree Nodes
+
+# Directory: Graphs
+Contains classes for Graphs
+
+# Directory: Trie
+Contains classes for Tries
